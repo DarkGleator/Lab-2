@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ name, email, password }),
+        credentials: 'include',
       });
 
       const data = await response.json();
@@ -92,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
+        credentials: 'include',
       });
   
       const data = await response.json();
@@ -136,6 +138,7 @@ recoverForm?.addEventListener('submit', async (e) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email }),
+      credentials: 'include',
     });
 
     const data = await response.json();
