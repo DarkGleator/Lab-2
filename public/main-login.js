@@ -1,6 +1,6 @@
 const BASE_URL = window.location.hostname.includes('localhost')
   ? 'http://localhost:3000' // URL do backend local
-  : 'https://oasi.onrender.com/'; // URL do backend no Render
+  : 'https://oasi.onrender.com'; // URL do backend no Render
 
 document.addEventListener('DOMContentLoaded', () => {
   const registerForm = document.getElementById('register-form');
