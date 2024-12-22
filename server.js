@@ -20,16 +20,10 @@ const allowedOrigins = [
 
 app.use(
   cors({
-    origin: (origin, callback) => {
-      // Permite qualquer domínio listado
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST'],
-    credentials: true,
+    origin: 'https://oasi.onrender.com', // Permita o front-end no Render
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Inclua todos os métodos usados
+    allowedHeaders: ['Content-Type', 'Authorization'], // Certifique-se de incluir os cabeçalhos necessários
+    credentials: true, // Permita cookies/autenticação se necessário
   })
 );
 
