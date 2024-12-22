@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | OASI</title>
+  <link rel="stylesheet" href="style-login.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="logo">
+        <img src="/assets/logo.png" alt="Logo da OASI" />
+      </a>
+    </div>
+  </header>
+
+  <!-- Container do Formulário -->
+<div class="form-container">
+  <!-- Formulário Login -->
+  <form id="login-form" class="form"> 
+      <h2>Bem-Vindo à OASI</h2>
+      <p>Não tens conta? <span id="switch-to-register" class="link">Conecta-te agora</span></p>
+    
+      <!-- Inputs de login -->
+      <input type="email" name="email" placeholder="Endereço Eletrónico" required>
+      <input type="password" name="password" placeholder="Password" required>
+    
+      <!-- Secção do "Guardar dados" e "Esqueceste-te da password?" -->
+      <div class="remember-forgot-container">
+        <div class="remember-me">
+          <input type="checkbox" id="remember">
+          <label for="remember">Guardar dados</label>
+        </div>
+        <a href="#" class="forgot-password">Esqueceste-te da tua password?</a>
+      </div>
+    
+      <!-- Botão de login -->
+      <button type="submit">Login</button>
+  </form>
+
+
+    <!-- Formulário Registo -->
+  <!-- Formulário Registo -->
+  <form id="register-form" class="form hidden">
+    <h2>Bem-Vindo ao OASI</h2>
+    <p>Já tens conta? <span id="switch-to-login" class="link">Faz login aqui</span></p>
+    <input type="text" name="name" placeholder="Nome Completo" required>
+    <input type="email" name="email" placeholder="Endereço Eletrónico" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <input type="password" name="confirm-password" placeholder="Repetir Password" required>
+    <button type="submit">Registar</button>
+  </form>
+
+
+<!-- Formulário Recuperação -->
+<form id="recover-form" class="form hidden">
+  <div class="back-arrow" id="back-to-login">
+    &#8592;
+  </div>
+  <h2>Recupera a tua password</h2>
+  <p>Esqueceste-te da tua password?</p>
+  <input type="email" name="email" placeholder="Endereço Eletrónico*" required>
+  <button type="submit">Recuperar password</button>
+</form>
+</div>
+
+  <script src="main-login.js"></script>
+</body>
+</html>

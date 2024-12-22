@@ -1,0 +1,29 @@
+[
+  {
+    "name": "teste1",
+    "email": "teste@gmail.com",
+    "password": "12345",
+    "localidade": "Coimbra",
+    "codigoPostal": "3223-222",
+    "morada": "Rua Nova, 45667",
+    "newsletter": "Ativa",
+    "emailNewsletter": "teste@gmail.com"
+  },
+  {
+    "name": "Edgar",
+    "email": "edu@hotmail.com",
+    "password": "ola123",
+    "localidade": "Lisboa",
+    "codigoPostal": "4500-787",
+    "morada": "Cais do Sodré, 24 ",
+    "newsletter": "Ativa",
+    "emailNewsletter": "edu@hotmail.com"
+  },
+  {
+    "name": "José Pereira",
+    "email": "josep@gmail.com",
+    "password": "1234",
+    "emailNewsletter": "josep@gmail.com",
+    "newsletter": "Cancelado"
+  }
+]

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil do Utilizador</title>
+  <link rel="stylesheet" href="style-profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-container">
+      <a href="/" class="logo">
+        <img src="/assets/logo.png" alt="Logo da OASI" />
+      </a>
+    <!-- Botão de Logout -->
+    <button id="logout-btn" class="logout-btn" title="Terminar sessão">
+      <i class="fas fa-sign-out-alt"></i> <!-- Ícone de logout -->
+    </button>
+    </div>
+  </header>
+
+  <div class="profile-header-container">
+    <h1 class="profile-title">Editar Dados</h1>
+    <nav class="profile-tabs">
+      <ul>
+        <li><a href="#" class="tab-link active" data-tab="dados-pessoais">Dados Pessoais</a></li>
+        <li><a href="#" class="tab-link" data-tab="newsletter">Newsletter</a></li>
+        <li><a href="#" class="tab-link" data-tab="compras">Compras</a></li>
+        <li><a id="delete-account-link" class="delete-account-link" href="#" title="Apagar Conta">Apagar Conta</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <main class="profile-container">
+    <!-- Dados Pessoais -->
+    <section id="dados-pessoais" class="profile-card content active">
+      <h2>Informação do Perfil</h2>
+      <h3 class="h3" id="profile-title"></h3>
+      <div class="profile-picture">
+        <img id="profile-image" src="/assets/utilizador.png" alt="Foto do perfil" class="circle" />
+        <button id="upload-btn">Carregar foto</button>
+        <input type="file" id="file-input" style="display: none;" accept="image/*" />
+      </div>
+      <form id="profile-form">
+        <label for="username">Nome do perfil</label>
+        <input type="text" id="username" name="username" placeholder="Nome do perfil">
+      
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Nova Password">
+        
+      
+        <div class="row">
+          <div>
+            <label for="localidade">Localidade</label>
+            <input type="text" id="localidade" name="localidade" placeholder="Localidade">
+          </div>
+          <div>
+            <label for="codigo-postal">Código Postal</label>
+            <input type="text" id="codigo-postal" name="codigo-postal" placeholder="Código Postal">
+          </div>
+        </div>
+      
+        <label for="morada">Morada</label>
+        <input type="text" id="morada" name="morada" placeholder="Morada">
+      
+        <button type="submit" id="save-btn">Guardar</button>
+        <div id="profile-message" class=""></div>
+      </form>
+    </section>
+
+<!-- Newsletter -->
+<section id="newsletter" class="profile-card content">
+  <h2>Newsletter</h2>
+  <div class="newsletter-container">
+    <label for="newsletter-email">Atualizar o seu email</label>
+    <input type="email" id="newsletter-email" placeholder="Email">
+
+    <div class="newsletter-row">
+      <input type="checkbox" id="stop-emails">
+      <label for="stop-emails">Parar de receber emails</label>
+    </div>
+
+    <button id="save-newsletter-btn">Guardar</button>
+  </div>
+  <div id="newsletter-message" class=""></div>
+</section>
+
+    <!-- Histórico de Compras -->
+    <section id="compras" class="profile-card content">
+      <h2>Histórico de Compras</h2>
+      <div class="row">
+        <select>
+          <option>2024</option>
+        </select>
+        <select>
+          <option>Compras</option>
+        </select>
+      </div>
+      <table>
+        <tr>
+          <th>Num. Encomenda</th>
+          <th>Data</th>
+          <th>Pagamento</th>
+          <th>Quantidade</th>
+          <th>Estado</th>
+        </tr>
+        <tr>
+          <td>#024</td>
+          <td>26 de Outubro</td>
+          <td>29,99€</td>
+          <td>1</td>
+          <td>Em processamento</td>
+        </tr>
+        <tr>
+          <td>#022</td>
+          <td>12 de Julho</td>
+          <td>15,99€</td>
+          <td>1</td>
+          <td>Entregue</td>
+        </tr>
+      </table>
+    </section>
+
+
+  <script src="profile.js"></script>
+</body>
+</html>

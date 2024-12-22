@@ -1,0 +1,1231 @@
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Black.otf') format('opentype');
+  font-weight: 900; /* Peso Black */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Bold.otf') format('opentype');
+  font-weight: bold; /* Peso Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Medium.otf') format('opentype');
+  font-weight: 500; /* Peso Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Regular.otf') format('opentype');
+  font-weight: normal; /* Peso Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Light.otf') format('opentype');
+  font-weight: 300; /* Peso Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Thin.otf') format('opentype');
+  font-weight: 100; /* Peso Thin */
+  font-style: normal;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Made Outer Sans', sans-serif;
+  margin: 0;
+  overflow-x: hidden; /* Impede que o conteúdo saia para os lados */
+}
+
+.main-content { 
+  position: relative; 
+  z-index: 1; /* Todas as seções dentro ficam acima do footer */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed; /* Fixa a navbar no topo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Altura da navbar */
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente */
+  transition: transform 0.6s ease, opacity 0.6s ease;
+  z-index: 10000;
+}
+
+/* Classe para ocultar a navbar */
+.navbar.hidden {
+  transform: translateY(-100%); /* Move a navbar para fora da tela */
+  opacity: 0; /* Faz a navbar desaparecer visualmente */
+}
+
+/* Container da Navbar */
+.navbar-container {
+  width: 90%; /* Centraliza o conteúdo horizontalmente */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Espaço entre logo, menu e ícone */
+  align-items: center; /* Alinha todos os itens verticalmente */
+}
+
+/* Logo */
+.logo img {
+  width: 60px; /* Tamanho menor do logotipo */
+  height: auto; /* Mantém a proporção */
+  padding-top: 35px;
+  
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  gap: 100px; /* Espaço menor entre os links */
+  padding-top: 10px;
+  margin-right: 40%; /* Aproxima os links do logotipo */
+}
+
+.menu a {
+  text-decoration: none;
+  color: white; /* Os links são brancos para contraste */
+  font-size: 1rem;
+  font-weight: 300;
+  transition: color 0.3s ease-in-out;
+}
+
+.menu a:hover {
+  color: #cfcfcf; /* Efeito de hover com cor mais clara */
+}
+
+/* Ícone do Perfil */
+.profile-icon img {
+  width: 18px; /* Reduz tamanho do ícone */
+  height: 18px; /* Mantém proporcional */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.1); /* Leve aumento no hover */
+}
+
+
+.info-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #252527;
+  padding-right: 4%;
+  padding-bottom: 15%;
+  z-index: 1;
+}
+
+.info-content {
+  background-color: #faca5d;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  font-weight: 250;
+}
+
+.info-content h2 {
+  margin-bottom: 10px;
+}
+
+.info-content p {
+  margin-bottom: 20px;
+}
+
+#close-overlay {
+  background-color: #252527;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#close-overlay:hover {
+  background-color: #313133;
+}
+
+
+.hero-section {
+  position: relative;
+  height: 100vh; /* Garante que a hero section ocupe 100% da altura da tela */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden; /* Remove qualquer overflow que possa causar margens */
+  box-shadow: 0px 10px 15px rgba(15, 15, 15, 0.3);
+}
+
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  will-change: transform;
+  transition: transform 0.1s ease-out; /* Movimentação sutil */
+  filter: brightness(0.4); /* Escurece o vídeo (50% do brilho) */
+}
+
+.text-container {
+  position: relative;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  max-width: 80%;
+}
+
+/* Responsividade para evitar problemas em telas pequenas */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 100vh; /* Manter o fundo cobrindo 100% da altura da tela */
+  }
+
+  .background-video {
+    transform: scale(1.05); /* Leve aumento para o fundo, sem causar margens */
+  }
+}
+
+.hero-text {
+  transition: opacity 0.2s ease, color 0.5s ease; /* Transição de opacidade e cor */
+  width: 100%;
+  text-align: center;
+}
+
+
+.model-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Já ocupa 100% da altura da tela */
+  width: 100%;   /* Certifique-se de que ocupa 100% da largura da tela */
+  background-color: #252527;
+}
+
+.canvas-title {
+  position: absolute;
+  color: white;
+  padding-right: 70%;
+  padding-bottom: 35%;
+  font-size: 3rem;
+  font-weight: bold;
+  pointer-events: none; /* Impede interação, para que cliques passem para o canvas */
+}
+
+/* Container principal para centralizar o conteúdo */
+.container {
+  max-width: 95%; /* Largura máxima para o conteúdo */
+  width: 100%; /* Garantir que o conteúdo se ajuste à largura da tela */
+  margin: 0 auto; /* Centraliza o conteúdo */
+  padding: 0 40px; /* Aumenta o padding lateral para mais espaço */
+}
+
+/* Para a terceira secção */
+.third-section {
+  background-color: #FACA5D; /* Cor de fundo amarela */
+  padding: 100px 0; /* Aumenta o padding acima e abaixo para mais espaço */
+  overflow: hidden; /* Impede que os conteúdos saiam da div */
+}
+
+/* Centralizar as imagens perto do topo */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* As imagens terão o mesmo tamanho, sem espaçamento entre elas */
+.image-item {
+  margin: 0; /* Remove o espaçamento entre as imagens */
+  position: relative; /* Para controlar o posicionamento */
+  margin: 0 -5px; /* Adiciona espaçamento horizontal entre as imagens */
+}
+
+/* Aumentar o tamanho das imagens e ajustá-las de forma proporcional */
+
+.image-item img {
+  width: 100%; /* Ajusta a largura automaticamente */
+  height: auto; /* Mantém a proporção correta da imagem */
+  object-fit: cover;
+}
+
+/* A imagem do meio deve ficar um pouco mais alta */
+.image-item.middle-image {
+  position: relative;
+  top: -50px; /* Move a imagem do meio um pouco para cima */
+}
+
+/* Título */
+h1.section-title {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
+  color: #252527;
+  margin-top: 20px;
+}
+
+/* Layout da seção de informações à esquerda e à direita */
+.information-container {
+  display: flex;
+  justify-content: space-between; /* Espaço entre os dois blocos de informações */
+  margin-top: 40px; /* Aumenta o espaço entre o título e as informações */
+}
+
+/* Para o texto à esquerda (A OASI é um projeto inovador...) */
+.left-info {
+  width: 48%; /* Largura de 48% para garantir o espaço para as informações da direita */
+  font-size: 1.5rem;
+  color: #252527;
+}
+
+/* Para as informações à direita */
+.right-info {
+  width: 70%; /* Largura de 48% para garantir o alinhamento */
+  font-size: 1rem;
+  line-height: 1;
+  color: #252527;
+  display: flex;
+  justify-content: space-between; /* Alinha as caixas de informação lado a lado */
+}
+
+/* Caixa de informações à direita */
+.info-box {
+  padding: 20px;
+  width: 60%; /* Define a largura para que fiquem três colunas de informações */
+  font-weight: 200;
+}
+
+@media (max-width: 768px) {
+  .image-container {
+    flex-direction: column; /* Coloca as imagens em uma coluna */
+    align-items: center;
+  }
+
+  .image-item {
+    width: 80%; /* As imagens ocupam mais espaço em telas pequenas */
+    margin-bottom: 20px;
+  }
+
+  .middle-image {
+    position: relative;
+    top: 0;
+  }
+
+  .information-container {
+    flex-direction: column; /* Alinha os textos verticalmente */
+    align-items: center;
+  }
+
+  .left-info, .right-info {
+    width: 100%; /* Ocupa a largura total */
+    text-align: center;
+  }
+
+  .info-box {
+    width: 100%; /* Expande as caixas para ocupar a largura total */
+    margin-bottom: 15px; /* Reduz o espaçamento entre as caixas */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .image-container {
+    flex-wrap: nowrap; /* Garante que as imagens permaneçam em linha */
+    justify-content: space-around; /* Espaça uniformemente as imagens */
+  }
+
+  .image-item {
+    width: 30%; /* Mantém uma proporção equilibrada */
+    margin: 0 5px;
+  }
+
+  .information-container {
+    flex-direction: row; /* Mantém os textos em linha */
+    justify-content: space-between;
+  }
+
+  .left-info, .right-info {
+    width: 48%; /* Divide igualmente o espaço */
+    text-align: left; /* Mantém o alinhamento do texto à esquerda */
+  }
+
+  .info-box {
+    width: 48%; /* Ajusta para caber lado a lado */
+  }
+}
+
+
+/* Seção de informações */
+.info-section {
+  padding: 120px 5%; /* Espaçamento lateral maior */
+  max-width: 100%; /* Ocupa toda a largura */
+  margin: 0 auto;
+  background-color: #FACA5D; /* Fundo amarelo */
+}
+
+
+/* Título principal */
+.info-section h1 {
+  font-size: 2.5rem; /* Tamanho grande para o título */
+  color: #252527; /* Cor do texto preta */
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 40px; /* Espaço abaixo do título */
+}
+
+/* Colunas de informações */
+.column {
+  background-color: #FACA5D; /* Fundo amarelo */
+  color: #ffffff; /* Texto branco */
+  font-size: 2.2rem; /* Tamanho do texto */
+  font-weight: bold;
+  border-bottom: 1px solid rgb(255, 255, 255); /* Linha fina entre os itens */
+  padding: 30px 15px; /* Espaçamento interno */
+  transition: all 0.2s ease-in-out; /* Suavidade na interação */
+}
+
+/* Expandir conteúdo */
+.column.open {
+  background-color: #f5be3d; /* Fundo levemente diferente para o item expandido */
+  color: #252527; /* Cor do texto preto */
+}
+
+.column.open .content {
+  max-height: 200px; /* Mostra o conteúdo expandido */
+  opacity: 1; /* Faz o texto visível */
+  font-weight: 200;
+}
+
+.column .content {
+  max-height: 0; /* Oculta o conteúdo inicialmente */
+  overflow: hidden; /* Esconde o texto que ultrapassa o limite */
+  opacity: 0; /* Deixa invisível inicialmente */
+  font-size: 1rem; /* Tamanho menor para o texto expandido */
+  line-height: 2; /* Melhor espaçamento entre linhas */
+  color: #252527; /* Cor do texto preto */
+  margin-top: 10px; /* Espaço acima do conteúdo */
+  transition: max-height 0.5s ease, opacity 0.9s ease; /* Animações suaves */
+}
+/* Responsividade */
+@media (max-width: 768px) {
+  .info-section h1 {
+    font-size: 2rem; /* Reduz o tamanho do título em telas menores */
+    text-align: center; /* Centraliza em dispositivos móveis */
+  }
+
+  .column {
+    font-size: 1rem; /* Texto menor para as colunas */
+    padding: 15px; /* Menor espaçamento interno */
+  }
+}
+
+/* Estilos para a Seção 5 */
+
+.video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* O vídeo vai ocupar toda a altura da tela */
+  overflow: hidden; /* Garante que o conteúdo não vaze da área */
+  display: flex;
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  background-color: #000; /* Fundo preto para a seção */
+}
+
+.video-section h2 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 32px;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o vídeo cubra toda a área, mesmo que precise ser cortado */
+}
+
+/* Estilos para a Secção 6 */
+.new-section-6 {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px 5%;
+  background-color: #FACA5D;
+  position: relative;
+}
+
+.new-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  position: relative;
+  padding: 100px;
+}
+
+/* Título principal fora da div */
+.new-main-title {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+/* Sidebar esquerda */
+.new-left-sidebar {
+  width: 30%;
+  padding-top: 50px; /* Alinha com o título */
+}
+
+.new-modules-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaçamento entre módulos */
+}
+.new-module {
+  display: flex;
+  justify-content: space-between; /* Texto à esquerda, bolas à direita */
+  align-items: center; /* Alinhamento vertical entre o texto e a bola */
+  padding: 50px; /* Espaçamento interno para melhorar o layout */
+}
+
+
+.new-icon {
+  width: 30px; /* Garante que todas as bolas tenham o mesmo tamanho */
+  height: 30px;
+  border-radius: 50%;
+  background-color: #FACA5D; /* Cor amarela para destacar */
+  flex-shrink: 0; /* Evita que a bola mude de tamanho em layouts flex */
+}
+
+.new-info h3 {
+  font-size: 2.7rem;
+  margin: 0;
+}
+
+
+.new-info p {
+  font-size: 1.1rem;
+  margin: 12px 0 0 0;
+  line-height: 1.5;
+  font-weight: 200;
+}
+
+.new-map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
+/* Informações à direita */
+.new-right-info {
+  width: 25%;
+  background-color: #252527;
+  color: #FACA5D;
+  padding: 50px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.new-right-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+}
+
+.new-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.new-step {
+  text-align: center;
+}
+
+.new-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FACA5D;
+  color: #252527;
+  font-weight: bold;
+  font-size: 1.2rem;
+  line-height: 50px;
+  margin: 0 auto 10px auto;
+}
+
+.new-step-title {
+  font-size: 1.1rem;
+}
+
+.new-arrow {
+  font-size: 30px;
+  color: #FACA5D;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .new-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .new-main-title {
+    left: 10%;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .new-left-sidebar,
+  .new-right-info {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+
+  .new-circle {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    line-height: 40px;
+  }
+}
+
+  
+/* Overlay */
+#map-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fundo mais escuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 1;
+}
+
+#map-overlay.hidden {
+  display: none;
+}
+
+
+/* Background do Overlay */
+.overlay-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(250, 202, 93, 0.85); /* Amarelo com transparência */
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 90%;
+  max-height: 90%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+/* Imagem centralizada e ampliada */
+.overlay-content img {
+  flex: 1;
+  border-radius: 12px 0 0 12px;
+  object-fit: contain;
+  max-height: 80vh;
+}
+
+/* Animação de FadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+#close-overlay:hover {
+  background-color: #d32f2f;
+}
+
+/* Destaque visual para as áreas clicáveis */
+.new-map-container area {
+  cursor: pointer;
+}
+
+area {
+  cursor: pointer;
+}
+
+
+/* Pontos de GPS no mapa */
+.gps-point {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #d7dc83;
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%); /* Centraliza os pontos */
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.gps-point:hover {
+  background-color: #d7daa8; /* Destaque ao passar o mouse */
+  transform: scale(1.3); /* Efeito de zoom */
+  box-shadow: 0 0 10px 3px rgba(141, 197, 169, 0.5);
+}
+
+.overlay-locations {
+  display: flex;
+  flex-direction: column; /* Colunas alinhadas verticalmente */
+  gap: 20px; /* Espaçamento entre colunas */
+  width: 100%;
+  text-align: center;
+}
+
+
+.location-column {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.location-column:hover {
+  transform: translateY(-5px);
+}
+
+.location-column h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #252527;
+  font-weight: 200;
+}
+
+.location-column p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* GPS Points Container */
+.gps-points-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gps-point-overlay {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: #d7dc83;
+  border: 2px solid white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 10px rgba(135, 187, 158, 0.8);
+
+  cursor: pointer;
+}
+
+.gps-point-overlay:hover {
+  transform: scale(1.5);
+  background-color: #d7daa8;
+}
+
+.location-column.highlight {
+  background-color: #ffeb3b;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  transform: translateY(-5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .overlay-content {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .overlay-content img {
+    border-radius: 12px 12px 0 0;
+    max-height: 40vh;
+  }
+
+  .overlay-locations {
+    max-height: 40vh;
+  }
+}
+
+/* Overlay Locations (Colunas) */
+.overlay-locations {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 15px 20px;
+  gap: 10px;
+  overflow-y: auto;
+  text-align: left;
+  max-height: 80vh;
+}
+
+/* Estilos para a seção 7 */
+.section-7 {
+  background-color: #FACA5D; /* Cor de fundo da seção */
+  color: #252527; /* Cor do texto */
+  display: flex;
+  justify-content: center; /* Centraliza o container externo horizontalmente */
+  align-items: center; /* Centraliza o container externo verticalmente */
+  height: 100vh; /* A seção ocupa 100% da altura da tela */
+  padding: 20px; /* Espaçamento interno para dispositivos menores */
+}
+
+
+.section-7-container {
+  max-width: 800px; /* Largura máxima do container */
+  width: 100%; /* Faz com que o container ocupe 100% da largura disponível até o limite do max-width */
+  text-align: center; /* Centraliza o texto dentro do container */
+}
+
+.section-7-title {
+  font-size: 4.5rem; /* Tamanho do título */
+  font-weight: bold; /* Negrito no título */
+  margin-bottom: 10px; /* Espaçamento abaixo do título */
+  text-align: left; /* Alinha o título ao lado esquerdo */
+  color: #ffffff;
+}
+
+.section-7-subtitle {
+  font-size: 2.5rem; /* Tamanho do subtítulo */
+  font-weight: normal; /* Peso normal para o subtítulo */
+  margin-bottom: 30px; /* Espaçamento abaixo do subtítulo */
+  text-align: left; /* Alinha o subtítulo ao lado esquerdo */
+}
+
+.section-7-text {
+  font-size: 1rem; /* Tamanho do texto */
+  line-height: 1.6; /* Espaçamento entre linhas */
+  text-align: center; /* Texto centralizado */
+  max-width: 600px; /* Limita a largura do texto */
+  margin: 0 auto; /* Centraliza horizontalmente o texto */
+  font-weight: 200;
+}
+
+/* Seção 8 */
+.section-8 {
+  background-color: #ffffff;
+  color: #252527;
+  padding: 0;
+  position: relative;
+  height: 100vh; /* Preenche a tela toda */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 0; /* Remover espaço extra */
+}
+
+.section-8-container {
+  padding-top: 3%;
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 2%;
+}
+
+
+/* Título e Subtítulo */
+.section-8-title {
+  font-size: 3rem; /* Tamanho maior */
+  font-weight: bold;
+  margin-bottom: 5px; /* Menor espaço entre título e subtítulo */
+  text-align: left;
+}
+
+.section-8-text {
+  font-size: 1.5rem; /* Tamanho maior */
+  margin-bottom: 30px;
+  line-height: 1.5;
+  font-weight: 300;
+  text-align: left;
+}
+
+/* Carrossel */
+.product-carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+}
+
+
+.product-carousel {
+  display: flex;
+  gap: 40px;
+  transition: transform 0.5s ease-in-out;
+  cursor: grab;
+}
+.product-item {
+  min-width: 250px;
+  flex-shrink: 0;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-10px);
+}
+
+.product-item img {
+  width: 100%;
+  height: 300px; /* Ajuste da altura */
+  object-fit: cover;
+  border-radius: 10px; /* Borda arredondada opcional */
+}
+
+.product-item p {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Botões de Navegação */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.prev-btn,
+.next-btn {
+  color: #252527;
+  border: none;
+  padding: 10px 30px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Link da loja */
+.store-link {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.store-link p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.store-link .next-btn {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .section-8-title {
+    font-size: 2.5rem;
+  }
+
+  .section-8-text {
+    font-size: 1.2rem;
+  }
+
+  .product-item {
+    width: 250px; /* Imagens menores em telas pequenas */
+  }
+
+  .store-link {
+    position: static;
+    margin-top: 20px;
+  }
+}
+
+
+/* Footer (Secção 9) */
+.section-9 {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  background: #faf9f8; /* Cor de fundo */
+  padding: 80px 10%;
+  color: #252527;
+  z-index: 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between; /* Espaçamento entre colunas */
+  align-items: flex-start; /* Alinha tudo ao topo */
+  gap: 50px;
+}
+
+.footer-logo {
+  width: 120px; /* Tamanho consistente do logo */
+  height: auto;
+  display: block; /* Remove comportamento inline */
+  margin: -20px; /* Remove margens extras */
+  padding-bottom: 40px;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinhamento vertical ao topo */
+  align-items: flex-start; /* Alinhamento horizontal à esquerda */
+}
+
+.footer-links {
+  display: flex;
+  justify-content: flex-start;
+  gap: 80px; /* Espaçamento entre colunas de links */
+}
+
+.footer-links div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaço entre links individuais */
+}
+
+.footer-links a {
+  text-decoration: none; /* Remove o sublinhado */
+  color: #252527; /* Mantém a cor */
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.footer-links a:hover {
+  color: #555; /* Cor de destaque ao passar o mouse */
+  text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
+.footer-contact {
+  margin-top: 20px;
+}
+
+.footer-contact p {
+  font-weight: 400;
+  margin: 5px 0;
+}
+
+.footer-contact a {
+  text-decoration: none;
+  color: #252527;
+  font-size: 0.85rem;
+  font-weight: 200;
+}
+
+.footer-right {
+  flex: 1;
+  max-width: 500px;
+}
+
+.footer-right h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: #252527;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between; /* Alinhamento lateral */
+  align-items: center; /* Alinhamento vertical */
+  margin-top: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #252527;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: #f0e9e8;
+  font-size: 1rem;
+  color: #555;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.newsletter-form input::placeholder {
+  color: #d4c7c4;
+}
+
+.newsletter-form button {
+  background: #252527;
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #000;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-right h2 {
+    font-size: 2rem;
+  }
+
+  .newsletter-form input {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .newsletter-form button {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+  }
+}
+
+/* Skew Divider */
+.skew-divider {
+  position: relative;
+  width: 100%;
+  height: 80px; /* Ajuste a altura da linha branca conforme necessário */
+  background-color: #FACA5D; /* Cor da seção superior */
+  z-index: 2;
+}
+
+.skew-divider::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Cor da linha branca */
+  clip-path: polygon(0 5%, 100% 73%, 100% 95%, 0 28%);
+  z-index: 1;
+}
+
+
+/* Skew Divider Entre Secção 3 e 4 */
+.skew-divider-3-4::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Cor da linha branca */
+  clip-path: polygon(0 70%, 100% 0, 100% 15%, 0 95%);
+  z-index: 1;
+}
+
+#newsletter-message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+#newsletter-message.success {
+  color: rgb(99, 190, 99);
+  font-weight: 200;
+}
+
+#newsletter-message.error {
+  color: rgb(216, 59, 59);
+  font-weight: 200;
+}

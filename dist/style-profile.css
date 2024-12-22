@@ -1,0 +1,386 @@
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Black.otf') format('opentype');
+  font-weight: 900; /* Peso Black */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Bold.otf') format('opentype');
+  font-weight: bold; /* Peso Bold */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Medium.otf') format('opentype');
+  font-weight: 500; /* Peso Medium */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Regular.otf') format('opentype');
+  font-weight: normal; /* Peso Regular */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Light.otf') format('opentype');
+  font-weight: 300; /* Peso Light */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MADE Outer Sans Alt';
+  src: url('dist/assets/fonts/MADEOuterSansAlt-Thin.otf') format('opentype');
+  font-weight: 100; /* Peso Thin */
+  font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #faca5d;
+    font-family: 'Made Outer Sans', sans-serif;
+  }
+  
+
+  .profile-header-container {
+    width: 90%;
+    max-width: 36%; /* Largura máxima do container */
+    margin: 0 auto; /* Centraliza o conteúdo horizontalmente */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha os itens à esquerda */
+    padding-top: 100px; /* Adiciona espaço abaixo da navbar */
+  }
+  
+
+/* Título "Editar Dados" */
+.profile-title {
+  font-weight: bold;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 10px; /* Espaçamento entre o título e as abas */
+}
+
+/* Estilos das abas */
+.profile-tabs {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 0; /* Remove margens adicionais */
+}
+
+
+.profile-tabs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px; /* Espaçamento entre as abas */
+}
+
+.profile-tabs ul li .tab-link {
+  text-decoration: none;
+  font-weight: 200;
+  color: #fff;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
+}
+
+
+.profile-tabs ul li .tab-link.active {
+  font-weight: bold;
+  color: #fff;
+}
+
+.profile-tabs ul li .tab-link:hover {
+  text-decoration: underline;
+  color: #fff
+}
+
+.h3{
+  font-weight: 200;
+  font-size: 1.4rem;
+}
+
+  .profile-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+/* Cartão de perfil */
+.profile-card {
+  background-color: #FCF9F9;
+  opacity: 0.8;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 800px;
+  box-sizing: border-box;
+  margin-bottom: 2%;
+}
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background-color: #D9D9D9;
+}
+  
+  
+/* Formulário */
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 300;
+  color: #000000;
+}
+  /* Reduzir a opacidade para os valores preexistentes nos inputs */
+input::placeholder {
+  color: rgba(0, 0, 0, 0.5); /* Cor com 50% de opacidade */
+  font-weight: 200; /* Menor peso da fonte */
+}
+
+input:not(:focus) {
+  color: rgba(0, 0, 0, 0.5); /* Reduz opacidade dos valores no input */
+}
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: #FFFFFF;
+  }
+  
+  /* Fila de inputs */
+  .row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  
+/* Botões */
+button, .upload-btn {
+  background-color: #8D8D8D;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 200;
+}
+
+button:hover, .upload-btn:hover {
+  background-color: #444;
+}
+
+
+  
+  .content {
+    display: none;
+  }
+  
+  .content.active {
+    display: block;
+  }
+  
+
+
+table th, table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  font-weight: 200;
+}
+
+table th {
+  font-weight: 200;
+}
+
+
+/* Navbar */
+.navbar {
+  position: fixed; /* Fixa a navbar no topo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Altura da navbar */
+  display: flex;
+  align-items: center; /* Alinha os itens verticalmente */
+  z-index: 1000; /* Para garantir que fique acima de outros elementos */
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Classe para ocultar a navbar */
+.navbar.hidden {
+  transform: translateY(-100%); /* Move a navbar para fora da tela */
+  opacity: 0; /* Faz a navbar desaparecer visualmente */
+}
+
+/* Container da Navbar */
+.navbar-container {
+  width: 90%; /* Centraliza o conteúdo horizontalmente */
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Espaço entre logo, menu e ícone */
+  align-items: center; /* Alinha todos os itens verticalmente */
+}
+
+/* Logo */
+.logo img {
+  width: 60px; /* Tamanho menor do logotipo */
+  height: auto; /* Mantém a proporção */
+  padding-top: 35px;
+  
+}
+
+/* Menu */
+.menu {
+  display: flex;
+  gap: 100px; /* Espaço menor entre os links */
+  padding-top: 10px;
+  margin-right: 40%; /* Aproxima os links do logotipo */
+}
+
+.menu a {
+  text-decoration: none;
+  color: white; /* Os links são brancos para contraste */
+  font-size: 1rem;
+  font-weight: 300;
+  transition: color 0.3s ease-in-out;
+}
+
+.menu a:hover {
+  color: #cfcfcf; /* Efeito de hover com cor mais clara */
+}
+
+/* Ícone do Perfil */
+.profile-icon img {
+  width: 18px; /* Reduz tamanho do ícone */
+  height: 18px; /* Mantém proporcional */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-icon img:hover {
+  transform: scale(1.1); /* Leve aumento no hover */
+}
+
+/* Newsletter Container */
+.newsletter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* Input de Email */
+.newsletter-container input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+/* Checkbox e Texto */
+.newsletter-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.newsletter-row input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+}
+
+.newsletter-row label {
+  font-size: 1rem;
+  color: #093753;
+  font-weight: 200;
+  cursor: pointer;
+}
+
+/* Botão Guardar */
+.newsletter-container button {
+  background-color: #D9D9D9;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.newsletter-container button:hover {
+  background-color: #444;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: #252527; /* Cor padrão */
+  font-size: 1.8rem; /* Tamanho do ícone */
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease;
+  margin-right: 10px;
+}
+
+.logout-btn:hover {
+  color: #d9534f; /* Cor vermelha para hover */
+  transform: scale(1.1); /* Leve aumento ao passar o mouse */
+}
+
+#newsletter-message.success {
+  color: rgb(99, 190, 99);
+  padding-top: 25px;
+  font-weight: 200;
+}
+
+#newsletter-message.error {
+  color: rgb(216, 59, 59);
+  padding-top: 25px;
+  font-weight: 200;
+}
+
+#profile-message.success {
+  color: rgb(99, 190, 99);
+  font-weight: 200;
+  padding-top: 20px;
+}
+
+#profile-message.error {
+  color: rgb(216, 59, 59);
+  font-weight: 200;
+  padding-top: 20px;
+}
+
+.delete-account-link {
+  color: #ff4d4d; /* Cor vermelha para alertar */
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.delete-account-link:hover {
+  color: #e60000; /* Vermelho mais forte no hover */
+  text-decoration: underline; /* Adiciona sublinhado no hover */
+}

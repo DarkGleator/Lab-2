@@ -1,0 +1,266 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FACA5D;
+  font-family: 'Made Outer Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: white;
+  padding: 150px 50px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1050px;
+  position: relative;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+
+/* Título */
+.form h2 {
+  color: #252527;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+
+/* Texto link */
+.link {
+  color: #093753;
+  font-weight: 200;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/* Estilo dos inputs */
+input {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  padding: 15px;
+  border: 1px solid #E0E0E0;
+  border-radius: 15px;
+  background-color: #FFFFFF;
+  color: #252527;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: rgba(37, 37, 39, 0.3);
+  font-weight: 300;
+}
+
+
+/* Estilo do botão */
+button {
+  width: 30%;
+  padding: 12px;
+  background-color: #093753;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Checkbox e link "Esqueceste-te da tua password?" */
+.remember-forgot-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 20px; /* Espaçamento ajustado */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
+button:hover {
+    background-color: #082A40;
+}
+
+.remember-me {
+  display: flex;
+  margin-left: -35px;
+}
+
+  
+
+.remember-me input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.remember-me label {
+  color: #252527;
+  cursor: pointer;
+  margin-left: -25px;
+  margin-top: 13px;
+  font-size: 0.8rem;
+  width: 200px;
+  text-align: center
+}
+
+.forgot-password {
+  color: #093753;
+  text-decoration: none;
+  font-weight: 300;
+  padding-left: 50px;
+}
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    padding: 30px;
+  }
+}
+
+  /* Navbar */
+.navbar {
+    position: fixed; /* Fixa a navbar no topo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Altura da navbar */
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente */
+    z-index: 1000; /* Para garantir que fique acima de outros elementos */
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  
+  /* Classe para ocultar a navbar */
+  .navbar.hidden {
+    transform: translateY(-100%); /* Move a navbar para fora da tela */
+    opacity: 0; /* Faz a navbar desaparecer visualmente */
+  }
+  
+  /* Container da Navbar */
+  .navbar-container {
+    width: 90%; /* Centraliza o conteúdo horizontalmente */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Espaço entre logo, menu e ícone */
+    align-items: center; /* Alinha todos os itens verticalmente */
+  }
+  
+  /* Logo */
+  .logo img {
+    width: 60px; /* Tamanho menor do logotipo */
+    height: auto; /* Mantém a proporção */
+    padding-top: 35px;
+    
+  }
+  
+  /* Menu */
+  .menu {
+    display: flex;
+    gap: 100px; /* Espaço menor entre os links */
+    padding-top: 10px;
+    margin-right: 40%; /* Aproxima os links do logotipo */
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: white; /* Os links são brancos para contraste */
+    font-size: 1rem;
+    font-weight: 300;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .menu a:hover {
+    color: #cfcfcf; /* Efeito de hover com cor mais clara */
+  }
+  
+  /* Ícone do Perfil */
+  .profile-icon img {
+    width: 18px; /* Reduz tamanho do ícone */
+    height: 18px; /* Mantém proporcional */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-icon img:hover {
+    transform: scale(1.1); /* Leve aumento no hover */
+  }
+
+/* Mensagem de sucesso */
+.success-message {
+    background-color: rgba(177, 177, 177, 0.8); /* Fundo cinza com opacidade */
+    color: #093753; /* Cor do texto */
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+/* Ajuste de inputs com ícones */
+input[type="password"] {
+    background-image: url('path-to-eye-icon.png'); /* Adicione o ícone do olho aqui */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 20px;
+}
+
+.remember-forgot-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+
+  #recover-form {
+    text-align: center;
+  }
+  
+  #recover-form input {
+    margin-bottom: 20px;
+  }
+
+  .back-arrow {
+    position: absolute;
+    top: 10px; /* Distância do topo */
+    left: 30px; /* Distância da esquerda */
+    font-size: 3rem;
+    color: #093753; /* Cor da seta */
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .back-arrow:hover {
+    color: #082A40; /* Cor mais escura no hover */
+  }
+
