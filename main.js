@@ -4,6 +4,10 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
+const BASE_URL = window.location.hostname.includes('localhost')
+  ? 'http://localhost:3000' // URL local
+  : 'https://oasi.onrender.com'; // URL de produção
+
 
 gsap.registerPlugin(ScrollTrigger);
 
