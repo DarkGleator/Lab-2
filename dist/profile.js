@@ -1,6 +1,6 @@
 const BASE_URL = window.location.hostname.includes('localhost')
 ? 'http://localhost:3000' // URL do backend local
-: 'https://oasi-backend.onrender.com'; // URL do backend no Render
+: 'https://oasi.onrender.com'; // URL do backend no Render
   
   // ------------------- Dados do Perfil -------------------
 document.addEventListener('DOMContentLoaded', () => {
@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedData),
+        credentials: 'include',
       });
   
       if (!response.ok) {
@@ -172,6 +173,7 @@ loadNewsletterData(currentUser);
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedNewsletterData),
+        credentials: 'include',
       });
   
       if (!response.ok) {
@@ -280,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: currentUser.email }),
+          credentials: 'include',
         });
 
         if (!response.ok) {

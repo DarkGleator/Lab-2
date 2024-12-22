@@ -10,6 +10,14 @@ const USERS_FILE = path.join(__dirname, 'users.json');
 // Middleware para servir arquivos estáticos do `dist`
 app.use(express.static(path.join(__dirname, 'dist')));
 
+app.use(
+  cors({
+    origin: '*', // Permitir todas as origens
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+);
 
 
 // Permitir múltiplos domínios
@@ -18,15 +26,10 @@ const allowedOrigins = [
   'https://oasi.onrender.com' // Domínio hospedado no Render
 ];
 
-app.use(
-  cors({
-    origin: 'https://oasi.onrender.com', // Permita o front-end no Render
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Inclua todos os métodos usados
-    allowedHeaders: ['Content-Type', 'Authorization'], // Certifique-se de incluir os cabeçalhos necessários
-    credentials: true, // Permita cookies/autenticação se necessário
-  })
-);
 
+
+// Garantir que preflight requests sejam tratadas
+app.options('*', cors());
 app.use(express.json());
 
 // Função para ler os utilizadores do arquivo
